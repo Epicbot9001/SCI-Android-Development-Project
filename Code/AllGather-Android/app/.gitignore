@@ -1,0 +1,11 @@
+# ignore everything in build except the apks
+build/*
+!build/outputs/
+
+build/outputs/*
+!build/outputs/apk/
+
+build/outputs/apk/*
+!build/outputs/apk/debug/
+
+

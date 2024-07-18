@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">All Gather</string>
+    <string name="started_recording">录像开始</string>
+    <string name="ok">OK</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="pref_title_storage_location">存储位置</string>
+    <string name="cannot_start_stop">现在不可以开始/停止录制。请重试。</string>
+    <string name="expiry_date_passed">请联系IT以获取更新版本。</string>
+    <string name="stop_recording_for_settings">请停止录制并且变更设置。</string>
+    <string name="recording_in_progress">正在录制中</string>
+    <string name="stopped_recording">录制停止</string>
+    <string name="permission_camera">请授予相机使用权限去使用此应用程序</string>
+    <string name="permission_location">请授予用户地址使用权限去使用此应用程序</string>
+    <string name="permission_storage">请授予存储使用权限去使用此应用程序</string>
+    <string name="storage">存储 (%1$s)</string>
+    <string name="battery">电池</string>
+    <string name="pref_header_general">一般设置</string>
+    <string name="done">Done</string>
+    <string name="enter_driver_id">请输入驱动程序ID</string>
+    <string name="stop_recording_for_gallery">进入画廊请停止录影。</string>
+    <string name="driver_id">驱动程序ID</string>
+    <string name="cannot_proceed">驱动程序ID必須含有六個到八個號碼。</string>
+    <string name="prompt_driver_id_on_startup">在启动时输入驱动程序ID</string>
+    <string name="for_testing_purposes_only">仅用于测试目的</string>
+</resources>

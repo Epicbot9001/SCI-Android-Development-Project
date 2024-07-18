@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+            android:name=".AllGatherApplication"
+            android:allowBackup="true"
+            android:icon="@drawable/ic_allgather"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".ui.calibration.CalibrationActivity"
+                android:exported="false"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".ui.camera.CameraActivity"
+                android:label="@string/title_activity_camera"
+                android:launchMode="singleTop"
+                android:screenOrientation="landscape"
+                android:theme="@style/CameraTheme" />
+        <activity
+                android:name=".ui.upload_data.UploadDataActivity"
+                android:label="UploadDataActivity"
+                android:launchMode="singleTop"
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.curves.CacheCurvesActivity"
+            android:label="CacheCurvesActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+        <activity
+            android:name=".deprecated.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".deprecated.SettingsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".deprecated.MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        -->
+        <activity
+                android:name=".ui.launch.LaunchActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:label="All Gather"
+                android:noHistory="true"
+                android:screenOrientation="landscape"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:windowSoftInputMode="stateVisible|adjustPan"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.provider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

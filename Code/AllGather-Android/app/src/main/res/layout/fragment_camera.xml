@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/texture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/crosshair2"
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/crosshair2" />
+
+    <ImageView
+        android:id="@+id/crosshair"
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/crosshair1" />
+
+    <View
+        android:id="@+id/recording_border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/recording_border"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1a000000"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_storage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/storage"
+                android:textAppearance="@style/TextViewLabel"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/storageTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0 GB"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextViewValue"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/storageProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/battery"
+                android:textAppearance="@style/TextViewLabel"
+                android:textColor="@android:color/white" />
+
+
+            <TextView
+                android:id="@+id/batteryTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="100%"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextViewValue"
+                android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/batteryProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gpsSignalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gps_initializing"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextViewValue"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/testingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:text="@string/for_testing_purposes_only"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textColor="#80ffffff"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+<!--    <Button-->
+<!--        android:text="Cache Curves"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="start|bottom"-->
+<!--        android:id="@+id/cache_curves_button"-->
+<!--        android:layout_marginBottom="155dp"-->
+<!--        android:layout_marginLeft="31dp"/>-->
+
+    <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
+        android:text="Cache Curves"
+        android:id="@+id/cache_curves_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:layout_marginBottom="155dp"
+        android:layout_marginLeft="31dp"
+        app:initialCornerAngle="0in" />
+
+    <Button
+        android:text="Upload Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:id="@+id/upload_data_button"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="31dp"/>
+
+    <Button
+            android:text="Calibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:id="@+id/cam_but_cal"
+            android:layout_margin="31dp" />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="visible">
+
+        <Switch
+                android:text="Record video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch1"
+                android:layout_gravity="bottom|end"
+                android:minHeight="48dp"
+                android:textColor="@android:color/white"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/capture_button"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@drawable/ic_media_play"
+                android:contentDescription="Play Button" />
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

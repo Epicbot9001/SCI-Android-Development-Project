@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">All Gather</string>
+    <string name="data_version" translatable="false">1.5</string>
+    <string name="app_version" translatable="false">Version 3.7</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_driverid" translatable="false">driverid</string>
+    <string name="pref_promptdriverid" translatable="false">prompt_driverid</string>
+    <string name="extras_storage_location" translatable="false">storage_location</string>
+    <string name="pref_camera_switch" translatable="false">camera_switch</string>
+
+    <string name="pref_title_storage_location">Storage Location</string>
+    <string name="title_activity_launch" translatable="false">LaunchActivity</string>
+    <string name="section_format" translatable="false">Hello World from section: %1$d</string>
+
+    <string name="cannot_start_stop">Cannot start/stop right now. Please try again.</string>
+    <string name="expiry_date_passed">Please contact IT for newer version.</string>
+    <string name="stop_recording_for_settings">Please stop recording to change settings.</string>
+    <string name="stop_recording_for_gallery">Please stop recording to access the gallery.</string>
+    <string name="ok">OK</string>
+    <string name="recording_in_progress">Recording in progress</string>
+    <string name="started_recording">Started Recording</string>
+    <string name="stopped_recording">Stopped Recording</string>
+    <string name="storage">Storage (%1$s)</string>
+    <string name="battery">Battery</string>
+    <string name="gps_initializing">GPS Initializing...</string>
+
+    <string name="permission_camera">You can not use this app without granting permission for the camera</string>
+    <string name="permission_location">You can not use this app without granting permission for location</string>
+    <string name="permission_storage">You can not use this app without granting permission for storage</string>
+
+    <string name="encryption_key" translatable="false">gtbuzz2018</string>
+
+    <string name="enter_driver_id">Please Enter Driver ID</string>
+    <string name="done">Done</string>
+    <string name="cannot_proceed">Driver ID must contain 6 to 8 numbers</string>
+    <string name="pref_storage_list" translatable="false">storage_list</string>
+    <string name="driver_id">Driver ID</string>
+    <string name="prompt_driver_id_on_startup">Prompt for Driver ID on startup</string>
+
+    <string name="toggle_cam">Video Recording On</string>
+    <string name="pref_toggle_cam">togglecamera</string>
+    <string name="gps_signal_disconnected">GPS Disconnected</string>
+    <string name="gps_signal_connected">GPS Connected</string>
+
+
+    <string name="pref_resolution" translatable="false">resolution</string>
+    <string name="resolution">Video Resolution</string>
+    <string name="pref_framerate" translatable="false">framerate</string>
+    <string name="framerate">Framerate</string>
+    <string name="pref_header_camera">Camera</string>
+    <string name="pref_bitrate" translatable="false">bitrate</string>
+    <string name="bitrate">Bitrate</string>
+    <string name="pref_white_balance">white_balance</string>
+    <string name="white_balance">White Balance</string>
+    <string name="pref_autofocus">auto_focus</string>
+    <string name="autofocus">Autofocus</string>
+    <string name="pref_antibanding">antibanding</string>
+    <string name="antibanding">Anti-Banding</string>
+    <string name="for_testing_purposes_only">For Testing Purposes Only</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

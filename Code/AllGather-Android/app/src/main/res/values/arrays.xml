@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="framerate">
+        <item>30</item>
+        <item>10</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="bitrate">
+        <item>10000000</item>
+        <item>6000</item>
+        <item>3000</item>
+        <item>1500</item>
+        <item>750</item>
+    </string-array>
+</resources>

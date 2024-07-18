@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="edu.gatech.ce.allgather.old.base.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <LinearLayout
+        android:id="@+id/main_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_storage"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/storage"
+                android:textAppearance="@style/TextViewLabel" />
+
+
+            <ProgressBar
+                android:id="@+id/storageProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:progressTint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/storageTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="0 GB"
+                android:textAppearance="@style/TextViewValue"
+                android:textAlignment="textEnd"
+                android:layout_weight="0"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/battery"
+                android:textAppearance="@style/TextViewLabel" />
+
+
+            <ProgressBar
+                android:id="@+id/batteryProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:progressTint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/batteryTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textAppearance="@style/TextViewValue"
+                android:textAlignment="textEnd"
+                android:layout_weight="0"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/gpsSignalTextView"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextViewValue"
+                tools:text="@string/gps_initializing" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp">
+            <!--
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="rx"
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_rx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ry"
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_ry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="rz"
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_rz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+                        </LinearLayout>
+            -->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <!--
+                <TextureView
+                    android:id="@+id/camera_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                    -->
+                <edu.gatech.ce.allgather.old.utils.AutoFitTextureView
+                    android:id="@+id/camera_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+                <ImageView
+                    android:id="@+id/disable_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_clear_black_24dp"
+                    android:visibility="invisible"/>
+
+                <ImageView
+                    android:id="@+id/crosshair2"
+                    android:layout_width="match_parent"
+                    android:layout_height="10px"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/crosshair2"
+                    android:layout_centerVertical="true" />
+
+                <ImageView
+                    android:id="@+id/crosshair"
+                    android:layout_width="match_parent"
+                    android:layout_height="10px"
+                    android:src="@drawable/crosshair1"
+                    android:scaleType="centerCrop"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/testingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/for_testing_purposes_only"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"
+                    android:textColor="#80ffffff"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+            <!--
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:orientation="vertical"
+                            android:paddingLeft="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Loc."
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_displacement"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Accel."
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_acceleration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Magnet."
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_angulardisplacement"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Gyro."
+                                android:textAppearance="@style/TextViewLabel" />
+
+                            <TextView
+                                android:id="@+id/tv_angularvelocity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="N/A"
+                                android:textAppearance="@style/TextViewValue" />
+
+
+
+
+                        </LinearLayout>
+            -->
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
