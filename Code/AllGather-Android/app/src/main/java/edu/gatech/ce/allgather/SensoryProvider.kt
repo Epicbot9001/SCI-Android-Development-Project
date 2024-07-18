@@ -2,19 +2,19 @@ package edu.gatech.ce.allgather
 
 class SensorProvider(private val useMock: Boolean, private val gpsCsvFilePath: String, private val imuCsvFilePath: String) {
 
-    fun getGPSSensor(): Any {
+    fun getGPSSensor(): GPSSensor {
         return if (useMock) {
             MockGPSSensor(gpsCsvFilePath)
         } else {
-            RealGPSSensor()
+            RealGPSSensor() // Use the real GPS sensor class
         }
     }
 
-    fun getIMUSensor(): Any {
+    fun getIMUSensor(): IMUSensor {
         return if (useMock) {
             MockIMUSensor(imuCsvFilePath)
         } else {
-            RealIMUSensor()
+            RealIMUSensor() // Use the real IMU sensor class
         }
     }
 }

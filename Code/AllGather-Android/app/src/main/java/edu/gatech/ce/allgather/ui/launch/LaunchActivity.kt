@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -22,6 +23,7 @@ import com.google.android.material.snackbar.Snackbar
 import edu.gatech.ce.allgather.AllGatherApplication
 import edu.gatech.ce.allgather.BuildConfig
 import edu.gatech.ce.allgather.R
+import edu.gatech.ce.allgather.*
 import edu.gatech.ce.allgather.base.BaseActivity
 import edu.gatech.ce.allgather.extend.setOnClickDebounceListener
 import edu.gatech.ce.allgather.ui.camera.CameraActivity
@@ -50,6 +52,7 @@ class LaunchActivity : BaseActivity(), EasyPermissions.PermissionCallbacks, Easy
 
         private const val RC_PERM = 0x111
     }
+    private lateinit var sensorProvider: SensorProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val mSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
@@ -129,6 +132,33 @@ class LaunchActivity : BaseActivity(), EasyPermissions.PermissionCallbacks, Easy
         }
     }
 
+//    private fun saveIdAndProceedToMain() {
+//        if (!EasyPermissions.hasPermissions(this, *PERMISSIONS)) {
+//            Log.d("LaunchActivity", "EasyPermissions doesn't see the permissions. Requesting permissions.")
+//            EasyPermissions.requestPermissions(this, "We need permission", RC_PERM, *PERMISSIONS)
+//            return
+//        }
+//
+//
+//        //validate driver id
+//        val editText_driver_id = findViewById<AppCompatEditText>(R.id.editText_driver_id)
+//        val id = editText_driver_id.text.toString()
+//        if (isInteger(id) && id.length >= 6 && id.length <= 8) {
+//            // done
+//            val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+//            val editor = sharedPref.edit()
+//            editor.putString(getString(R.string.pref_driverid), editText_driver_id.text.toString())
+//            editor.apply()
+//            val i = Intent(this, CameraActivity::class.java)
+//            startActivity(i)
+//            finish()
+//        } else {
+//            // hint error msg
+//            editText_driver_id.error = resources.getString(R.string.cannot_proceed)
+//        }
+//
+//    }
+
     private fun saveIdAndProceedToMain() {
         if (!EasyPermissions.hasPermissions(this, *PERMISSIONS)) {
             Log.d("LaunchActivity", "EasyPermissions doesn't see the permissions. Requesting permissions.")
@@ -136,25 +166,56 @@ class LaunchActivity : BaseActivity(), EasyPermissions.PermissionCallbacks, Easy
             return
         }
 
-
-        //validate driver id
         val editText_driver_id = findViewById<AppCompatEditText>(R.id.editText_driver_id)
         val id = editText_driver_id.text.toString()
         if (isInteger(id) && id.length >= 6 && id.length <= 8) {
-            // done
             val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
             val editor = sharedPref.edit()
             editor.putString(getString(R.string.pref_driverid), editText_driver_id.text.toString())
             editor.apply()
-            val i = Intent(this, CameraActivity::class.java)
-            startActivity(i)
-            finish()
+
+            val useMock = findViewById<Switch>(R.id.toggleTestingMode).isChecked
+            // Update the file paths to point to the existing data
+            val gpsCsvFilePath = "/storage/emulated/0/Download/2023_10_05_17_14_07_252_loc.csv"
+            val imuCsvFilePath = "/storage/emulated/0/Download/2023_10_05_17_14_07_252_acc.csv"
+//            val calibrationCsvFilePath = "/storage/emulated/0/Download/2023_10_05_17_11_10_478_calibration.csv"
+            sensorProvider = SensorProvider(useMock, gpsCsvFilePath, imuCsvFilePath)
+
+            if (useMock) {
+                val gpsSensor = sensorProvider.getGPSSensor() as MockGPSSensor
+                val mockGPSData = gpsSensor.getGPSData()
+
+                val imuSensor = sensorProvider.getIMUSensor() as MockIMUSensor
+                val mockIMUData = imuSensor.getIMUData()
+
+                startProcessingMockData(mockGPSData, mockIMUData)
+            } else {
+                val i = Intent(this, CameraActivity::class.java)
+                startActivity(i)
+                finish()
+            }
         } else {
-            // hint error msg
             editText_driver_id.error = resources.getString(R.string.cannot_proceed)
         }
-
     }
+
+    private fun startProcessingMockData(mockGPSData: List<GPSData>, mockIMUData: List<IMUData>) {
+        // Simulate processing of GPS data
+        mockGPSData.forEach { gpsData ->
+            // Simulate processing each GPS data point
+            Log.d("LaunchActivity", "Processing mock GPS data: Lat=${gpsData.latitude}, Lon=${gpsData.longitude}, Timestamp=${gpsData.timestamp}")
+        }
+
+        // Simulate processing of IMU data
+        mockIMUData.forEach { imuData ->
+            // Simulate processing each IMU data point
+            Log.d("LaunchActivity", "Processing mock IMU data: AccelX=${imuData.accelX}, AccelY=${imuData.accelY}, AccelZ=${imuData.accelZ}, GyroX=${imuData.gyroX}, GyroY=${imuData.gyroY}, GyroZ=${imuData.gyroZ}, Timestamp=${imuData.timestamp}")
+        }
+
+        // Simulate saving processed data to local storage or any other required processing
+        Log.d("LaunchActivity", "Finished processing mock data")
+    }
+
 
     private fun isDriverIdValid(): Boolean {
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
